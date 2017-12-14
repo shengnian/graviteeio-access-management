@@ -1,0 +1,76 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:gravitee:am:identityprovider:mongo:MongoIdentityProviderConfiguration",
+  "properties" : {
+    "uri" : {
+      "type" : "string",
+      "default": "mongodb://localhost:27017",
+      "title": "MongoDB connection URI",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "host" : {
+      "type" : "string",
+      "default": "localhost",
+      "title": "MongoDB connection host",
+      "description": "Not required if the MongoDB connection URI is set."
+    },
+    "port" : {
+      "type": "number",
+      "default": 27017,
+      "minimum": 1,
+      "title": "MongoDB connection port",
+      "description": "Not required if the MongoDB connection URI is set."
+    },
+    "enableCredentials" : {
+      "type" : "boolean",
+      "default": false,
+      "title": "Secure access to MongoDB",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "databaseCredentials" : {
+      "type" : "string",
+      "title": "Authentication database",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "usernameCredentials" : {
+      "type" : "string",
+      "title": "Authentication user",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "passwordCredentials" : {
+      "type" : "string",
+      "title": "Authentication password",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root.",
+      "widget": "password"
+    },
+    "database" : {
+      "type" : "string",
+      "title": "The database used to run query",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "usersCollection" : {
+      "type" : "string",
+      "default": "users",
+      "title": "The collection used to run query",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "findUserByUsernameQuery" : {
+      "type" : "string",
+      "default": "{username: ?}",
+      "title": "Query to find for a user using its identifier (username)",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    },
+    "passwordField" : {
+      "type" : "string",
+      "default": "password",
+      "title": "Password field",
+      "description": "If user-search-base isn't supplied, the search will be performed from the root."
+    }
+  },
+  "required": [
+    "database",
+    "usersCollection",
+    "findUserByUsernameQuery",
+    "passwordField"
+  ]
+}
